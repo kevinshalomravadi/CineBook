@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineBook – Book Movie Tickets Online</title>
+  <meta name="description" content="CineBook lets you browse now-showing movies, pick your seats, and book tickets instantly – all in one slick experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo" id="logo-link">
+        <span class="logo-icon">🎬</span>
+        <span class="logo-text">CineBook</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#now-showing" class="nav-link" id="nav-movies">Movies</a>
+        <a href="#" class="nav-link" id="nav-events">Events</a>
+        <a href="#" class="nav-link" id="nav-sports">Sports</a>
+        <a href="#" class="nav-link" id="nav-plays">Plays</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="city-selector" id="city-selector">
+          <span class="city-icon">📍</span>
+          <span class="city-name" id="city-display">Mumbai</span>
+          <span class="city-arrow">▾</span>
+        </div>
+        <button class="btn-signin" id="btn-signin">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero-section">
+      <div class="hero-bg" id="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">🔥 Now Trending</div>
+        <h1 class="hero-title">The Grand <span class="hero-accent">Illusion</span></h1>
+        <p class="hero-sub">A mind-bending cinematic odyssey · 2h 48m · Action · Sci-Fi</p>
+        <div class="hero-meta">
+          <span class="hero-rating">⭐ 9.2 / 10</span>
+          <span class="hero-dot">·</span>
+          <span>98% Google Liked</span>
+          <span class="hero-dot">·</span>
+          <span>🏆 IMAX Available</span>
+        </div>
+        <div class="hero-actions">
+          <button class="btn-book-hero" id="btn-hero-book" data-movie="grand-illusion">Book Tickets</button>
+          <button class="btn-trailer" id="btn-trailer">▶ Watch Trailer</button>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <div class="scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- ===== SEARCH BAR ===== -->
+    <section class="search-section" id="search-section">
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="search" class="search-input" id="search-input"
+               placeholder="Search for movies, events, plays, sports…" autocomplete="off" />
+        <button class="search-btn" id="search-btn">Search</button>
+      </div>
+    </section>
+
+    <!-- ===== NOW SHOWING ===== -->
+    <section class="section" id="now-showing">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Now Showing</h2>
+          <p class="section-sub">Pick your next cinematic adventure</p>
+        </div>
+        <a href="#" class="see-all" id="see-all-movies">See All →</a>
+      </div>
+
+      <div class="movies-grid" id="movies-grid">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- ===== COMING SOON ===== -->
+    <section class="section" id="coming-soon">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Coming Soon</h2>
+          <p class="section-sub">Mark your calendars</p>
+        </div>
+        <a href="#" class="see-all" id="see-all-coming">See All →</a>
+      </div>
+      <div class="coming-slider" id="coming-slider">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- ===== OFFERS BANNER ===== -->
+    <section class="offers-section" id="offers-section">
+      <div class="offers-inner">
+        <div class="offer-card" id="offer-card-1">
+          <div class="offer-emoji">💳</div>
+          <div>
+            <h3>HDFC Card Offer</h3>
+            <p>Up to 30% off on movie tickets with HDFC Debit &amp; Credit cards</p>
+          </div>
+          <span class="offer-badge">30% OFF</span>
+        </div>
+        <div class="offer-card" id="offer-card-2">
+          <div class="offer-emoji">🎟️</div>
+          <div>
+            <h3>Tuesday Treat</h3>
+            <p>Buy 1 Get 1 free on all movies every Tuesday</p>
+          </div>
+          <span class="offer-badge">B1G1</span>
+        </div>
+        <div class="offer-card" id="offer-card-3">
+          <div class="offer-emoji">🍿</div>
+          <div>
+            <h3>Combo Deal</h3>
+            <p>Get a free large popcorn + coke with IMAX bookings this weekend</p>
+          </div>
+          <span class="offer-badge">FREE</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">🎬</span>
+        <span class="logo-text">CineBook</span>
+        <p>India's #1 movie ticketing platform</p>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="footer-links">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQs</a>
+        <a href="#">Refunds</a>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#">Movies</a>
+        <a href="#">Events</a>
+        <a href="#">Sports</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 CineBook · Built for demo purposes</div>
+  </footer>
+
+  <!-- ===== MOVIE DETAIL MODAL ===== -->
+  <div class="modal-overlay" id="movie-modal" role="dialog" aria-modal="true" aria-labelledby="modal-movie-title">
+    <div class="modal-box movie-detail-box">
+      <button class="modal-close" id="modal-close-movie" aria-label="Close">✕</button>
+      <div class="movie-modal-hero" id="movie-modal-hero"></div>
+      <div class="movie-modal-content">
+        <div class="movie-modal-left">
+          <img id="modal-poster" src="" alt="Movie Poster" class="modal-poster" />
+        </div>
+        <div class="movie-modal-right">
+          <div class="modal-badges" id="modal-badges"></div>
+          <h2 id="modal-movie-title" class="modal-movie-title"></h2>
+          <div class="modal-meta" id="modal-meta"></div>
+          <p class="modal-desc" id="modal-desc"></p>
+          <div class="modal-cast" id="modal-cast"></div>
+          <div class="date-selector" id="date-selector">
+            <h4>Select Date</h4>
+            <div class="dates-row" id="dates-row"></div>
+          </div>
+          <div class="show-times" id="show-times-section">
+            <h4>Select Show</h4>
+            <div class="cinemas-list" id="cinemas-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SEAT SELECTION MODAL ===== -->
+  <div class="modal-overlay" id="seat-modal" role="dialog" aria-modal="true" aria-labelledby="seat-modal-title">
+    <div class="modal-box seat-box">
+      <button class="modal-close" id="modal-close-seat" aria-label="Close">✕</button>
+      <div class="seat-header">
+        <h2 id="seat-modal-title" class="seat-title"></h2>
+        <p id="seat-subtitle" class="seat-subtitle"></p>
+      </div>
+
+      <div class="screen-wrapper">
+        <div class="screen">SCREEN</div>
+        <div class="screen-glow"></div>
+      </div>
+
+      <div class="seat-legend">
+        <span class="legend-item"><span class="seat-demo available"></span> Available</span>
+        <span class="legend-item"><span class="seat-demo selected"></span> Selected</span>
+        <span class="legend-item"><span class="seat-demo booked"></span> Booked</span>
+        <span class="legend-item"><span class="seat-demo premium"></span> Premium</span>
+      </div>
+
+      <div class="seat-map-wrapper">
+        <div class="seat-map" id="seat-map"></div>
+      </div>
+
+      <div class="booking-summary" id="booking-summary">
+        <div class="summary-info">
+          <span id="selected-count">0 Seats</span>
+          <span id="selected-seats-label"></span>
+        </div>
+        <div class="summary-price">
+          <span class="price-label">Total</span>
+          <span class="price-value" id="total-price">₹0</span>
+        </div>
+        <button class="btn-proceed" id="btn-proceed" disabled>Proceed to Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAYMENT MODAL ===== -->
+  <div class="modal-overlay" id="payment-modal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title">
+    <div class="modal-box payment-box">
+      <button class="modal-close" id="modal-close-payment" aria-label="Close">✕</button>
+      <h2 id="payment-modal-title" class="payment-title">Complete Your Booking</h2>
+      <div class="payment-content">
+        <div class="order-summary">
+          <h4>Order Summary</h4>
+          <div id="order-details" class="order-details"></div>
+        </div>
+        <div class="payment-methods">
+          <h4>Payment Method</h4>
+          <div class="pay-options">
+            <label class="pay-option" id="pay-upi">
+              <input type="radio" name="payment" value="upi" checked id="radio-upi" />
+              <span class="pay-icon">📱</span>
+              <span>UPI</span>
+            </label>
+            <label class="pay-option" id="pay-card">
+              <input type="radio" name="payment" value="card" id="radio-card" />
+              <span class="pay-icon">💳</span>
+              <span>Card</span>
+            </label>
+            <label class="pay-option" id="pay-wallet">
+              <input type="radio" name="payment" value="wallet" id="radio-wallet" />
+              <span class="pay-icon">👛</span>
+              <span>Wallet</span>
+            </label>
+            <label class="pay-option" id="pay-nb">
+              <input type="radio" name="payment" value="nb" id="radio-nb" />
+              <span class="pay-icon">🏦</span>
+              <span>Net Banking</span>
+            </label>
+          </div>
+          <div class="upi-input-wrap" id="upi-input-wrap">
+            <input type="text" class="upi-input" id="upi-id-input" placeholder="Enter UPI ID (e.g. name@upi)" />
+          </div>
+        </div>
+        <button class="btn-pay" id="btn-pay">
+          <span id="btn-pay-text">Pay Now</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONFIRMATION MODAL ===== -->
+  <div class="modal-overlay" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <div class="modal-box confirm-box">
+      <div class="confetti-container" id="confetti-container"></div>
+      <div class="confirm-icon">🎉</div>
+      <h2 id="confirm-title" class="confirm-title">Booking Confirmed!</h2>
+      <p class="confirm-sub">Your tickets are booked. Enjoy the show!</p>
+      <div class="ticket-card" id="ticket-card">
+        <div class="ticket-top">
+          <div class="ticket-movie" id="ticket-movie-name"></div>
+          <div class="ticket-id">Booking ID: <strong id="ticket-id"></strong></div>
+        </div>
+        <div class="ticket-divider"><span></span></div>
+        <div class="ticket-details">
+          <div class="ticket-detail-row">
+            <div><span class="td-label">Cinema</span><span class="td-val" id="ticket-cinema"></span></div>
+            <div><span class="td-label">Date &amp; Time</span><span class="td-val" id="ticket-datetime"></span></div>
+          </div>
+          <div class="ticket-detail-row">
+            <div><span class="td-label">Seats</span><span class="td-val" id="ticket-seats"></span></div>
+            <div><span class="td-label">Amount Paid</span><span class="td-val" id="ticket-amount"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="confirm-actions">
+        <button class="btn-download" id="btn-download">⬇ Download Ticket</button>
+        <button class="btn-home" id="btn-home">Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast" role="alert"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
