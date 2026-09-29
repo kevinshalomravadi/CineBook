@@ -7,14 +7,14 @@
 
 /* ---------- Colour palette for poster gradients ---------- */
 const GRADIENTS = [
-  ['#1a1a2e','#16213e','#0f3460'],
-  ['#2d1b69','#11998e','#38ef7d'],
-  ['#f7971e','#ffd200','#f7971e'],
-  ['#360033','#0b8793','#360033'],
-  ['#1f4037','#99f2c8','#1f4037'],
-  ['#4e0000','#200122','#6f0000'],
-  ['#1a1a2e','#c94b4b','#4b134f'],
-  ['#0052d4','#65c7f7','#9cecfb'],
+  ['#1a1a2e', '#16213e', '#0f3460'],
+  ['#2d1b69', '#11998e', '#38ef7d'],
+  ['#f7971e', '#ffd200', '#f7971e'],
+  ['#360033', '#0b8793', '#360033'],
+  ['#1f4037', '#99f2c8', '#1f4037'],
+  ['#4e0000', '#200122', '#6f0000'],
+  ['#1a1a2e', '#c94b4b', '#4b134f'],
+  ['#0052d4', '#65c7f7', '#9cecfb'],
 ];
 
 /* ---------- Movies Database ---------- */
@@ -159,9 +159,9 @@ const COMING_SOON = [
 ];
 
 const CINEMAS = [
-  { name: 'PVR IMAX Infiniti', location: 'Andheri West', times: ['09:30 AM','12:45 PM','04:00 PM','07:15 PM','10:30 PM'] },
-  { name: 'Cinepolis Grand', location: 'Thane West', times: ['10:00 AM','01:30 PM','05:00 PM','08:30 PM'] },
-  { name: 'INOX Megaplex', location: 'Lower Parel', times: ['11:00 AM','02:15 PM','06:00 PM','09:15 PM'] },
+  { name: 'PVR IMAX Infiniti', location: 'Andheri West', times: ['09:30 AM', '12:45 PM', '04:00 PM', '07:15 PM', '10:30 PM'] },
+  { name: 'Cinepolis Grand', location: 'Thane West', times: ['10:00 AM', '01:30 PM', '05:00 PM', '08:30 PM'] },
+  { name: 'INOX Megaplex', location: 'Lower Parel', times: ['11:00 AM', '02:15 PM', '06:00 PM', '09:15 PM'] },
 ];
 
 /* ---------- State ---------- */
@@ -284,7 +284,7 @@ function setupNavbar() {
    ============================================================ */
 function setupSearch() {
   const input = $('search-input');
-  const btn   = $('search-btn');
+  const btn = $('search-btn');
 
   function doSearch() {
     const q = input.value.trim().toLowerCase();
@@ -365,23 +365,23 @@ function closeModal(id) {
 
 function setupModals() {
   /* Close on backdrop click */
-  ['movie-modal','seat-modal','payment-modal','confirm-modal'].forEach(id => {
+  ['movie-modal', 'seat-modal', 'payment-modal', 'confirm-modal'].forEach(id => {
     $(id).addEventListener('click', e => {
       if (e.target === $(id)) closeModal(id);
     });
   });
 
   /* Close buttons */
-  $('modal-close-movie').addEventListener('click',    () => closeModal('movie-modal'));
-  $('modal-close-seat').addEventListener('click',     () => closeModal('seat-modal'));
-  $('modal-close-payment').addEventListener('click',  () => closeModal('payment-modal'));
-  $('btn-home').addEventListener('click',             () => { closeModal('confirm-modal'); });
-  $('btn-download').addEventListener('click',         () => showToast('📥 Ticket downloaded! (demo)'));
+  $('modal-close-movie').addEventListener('click', () => closeModal('movie-modal'));
+  $('modal-close-seat').addEventListener('click', () => closeModal('seat-modal'));
+  $('modal-close-payment').addEventListener('click', () => closeModal('payment-modal'));
+  $('btn-home').addEventListener('click', () => { closeModal('confirm-modal'); });
+  $('btn-download').addEventListener('click', () => showToast('📥 Ticket downloaded! (demo)'));
 
   /* ESC key */
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      ['confirm-modal','payment-modal','seat-modal','movie-modal'].forEach(id => {
+      ['confirm-modal', 'payment-modal', 'seat-modal', 'movie-modal'].forEach(id => {
         if ($(id).classList.contains('active')) { closeModal(id); }
       });
     }
@@ -446,7 +446,7 @@ function renderDates() {
   const row = $('dates-row');
   row.innerHTML = '';
   const now = new Date();
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   for (let i = 0; i < 7; i++) {
     const d = new Date(now); d.setDate(now.getDate() + i);
     const btn = document.createElement('button');
@@ -495,7 +495,7 @@ function renderCinemas() {
   list.querySelectorAll('.time-btn:not(.sold-out)').forEach(btn => {
     btn.addEventListener('click', () => {
       state.selectedCinema = btn.dataset.cinema;
-      state.selectedTime   = btn.dataset.time;
+      state.selectedTime = btn.dataset.time;
       state.selectedLocation = btn.dataset.location;
       closeModal('movie-modal');
       openSeatModal();
@@ -519,9 +519,9 @@ function openSeatModal() {
 function buildSeatMap() {
   const map = $('seat-map');
   map.innerHTML = '';
-  const rows = ['A','B','C','D','E','F','G','H','J','K'];
+  const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K'];
   const COLS = 14;
-  const PREMIUM_ROWS = ['A','B'];
+  const PREMIUM_ROWS = ['A', 'B'];
   const BOOKED_PROB = 0.28;
 
   state.seatMap = [];
@@ -545,16 +545,16 @@ function buildSeatMap() {
       }
       const seatId = `${rowLabel}${c}`;
       const isPremium = PREMIUM_ROWS.includes(rowLabel);
-      const isBooked  = Math.random() < BOOKED_PROB;
-      const price     = isPremium ? 450 : 220;
+      const isBooked = Math.random() < BOOKED_PROB;
+      const price = isPremium ? 450 : 220;
 
       const seat = document.createElement('button');
       seat.className = `seat ${isPremium ? 'premium' : ''} ${isBooked ? 'booked' : ''}`;
       seat.id = `seat-${seatId}`;
-      seat.setAttribute('aria-label', `Seat ${seatId} ${isPremium ? '(Premium ₹'+price+')' : '(₹'+price+')'} ${isBooked ? '- Booked' : ''}`);
+      seat.setAttribute('aria-label', `Seat ${seatId} ${isPremium ? '(Premium ₹' + price + ')' : '(₹' + price + ')'} ${isBooked ? '- Booked' : ''}`);
       seat.disabled = isBooked;
       seat.dataset.seatId = seatId;
-      seat.dataset.price  = price;
+      seat.dataset.price = price;
       seat.dataset.premium = isPremium ? '1' : '0';
 
       if (!isBooked) {
@@ -571,7 +571,7 @@ function buildSeatMap() {
 
 function toggleSeat(seatEl) {
   const seatId = seatEl.dataset.seatId;
-  const price  = parseInt(seatEl.dataset.price);
+  const price = parseInt(seatEl.dataset.price);
 
   if (seatEl.classList.contains('selected')) {
     seatEl.classList.remove('selected');
@@ -651,7 +651,7 @@ function handlePayment() {
    ============================================================ */
 function openConfirmModal() {
   const movie = state.selectedMovie;
-  const bookingId = 'CB' + Math.random().toString(36).substr(2,9).toUpperCase();
+  const bookingId = 'CB' + Math.random().toString(36).substr(2, 9).toUpperCase();
 
   $('ticket-movie-name').textContent = movie.title;
   $('ticket-id').textContent = bookingId;
@@ -670,7 +670,7 @@ function openConfirmModal() {
 function launchConfetti() {
   const container = $('confetti-container');
   container.innerHTML = '';
-  const colors = ['#e8193c','#f5c518','#22c55e','#3b82f6','#a855f7','#f97316'];
+  const colors = ['#e8193c', '#f5c518', '#22c55e', '#3b82f6', '#a855f7', '#f97316'];
   for (let i = 0; i < 60; i++) {
     const piece = document.createElement('div');
     piece.className = 'confetti-piece';
